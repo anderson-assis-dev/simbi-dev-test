@@ -17,7 +17,7 @@ class LoanFactory extends Factory
             'book_id' => Book::factory(),
             'author_id' => Author::factory(),
             'loaned_at' => now(),
-            'returned_at' => null, // Ou uma data randomizada
+            'returned_at' => null,
         ];
     }
 }
