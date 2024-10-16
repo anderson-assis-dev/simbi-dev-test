@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BookFactory extends Factory
 {
-
     /**
      * The name of the factory's corresponding model.
      *
@@ -26,13 +25,13 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
-        $author = Author::inRandomOrder()->first();
+        $author = Author::factory()->create();
 
         return [
             "id" => $this->faker->uuid(),
             "title" => $this->faker->text(80),
             "publisher" => $this->faker->company(),
-            "author_id" => $author->id
+            "author_id" => $author->id,
         ];
     }
 }
