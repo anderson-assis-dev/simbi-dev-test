@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class LoanController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         return Loan::with(['book', 'author'])->get();
     }

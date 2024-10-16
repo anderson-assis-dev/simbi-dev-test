@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateAuthorController;
 use App\Http\Controllers\CreateBookController;
+use App\Http\Controllers\ListAllAuthorsController;
 use App\Http\Controllers\ListAllBooksController;
 use App\Http\Controllers\ListBooksByAuthorController;
 use App\Http\Controllers\LoanController;
@@ -26,6 +27,7 @@ Route::group(["prefix" => "books"], function () {
 
 Route::group(["prefix" => "authors"], function () {
     Route::get("{id}/books", ListBooksByAuthorController::class);
+    Route::get("", ListAllAuthorsController::class);
     Route::post("", CreateAuthorController::class);
 });
 Route::apiResource('loans', LoanController::class);
