@@ -68,6 +68,20 @@ export default function LoansPage() {
         setIsFormOpen(true);
     };
 
+    const handleDeleteLoan = async (id: string) => {
+        const confirmDelete = confirm("Você tem certeza que deseja excluir este empréstimo?");
+        if (confirmDelete) {
+            try {
+                await fetch(`http://localhost:9000/api/loans/${id}`, {
+                    method: "DELETE",
+                });
+                fetchLoans();
+            } catch (error) {
+                console.error("Erro ao excluir empréstimo:", error);
+            }
+        }
+    };
+
     const handleSuccess = () => {
         fetchLoans();
     };
@@ -107,7 +121,7 @@ export default function LoansPage() {
                 </Toolbar>
             </AppBar>
             <Box sx={{ my: 5, mx: 2 }}>
-                <LoansList loans={filteredLoans} onEdit={handleEditLoan} />
+                <LoansList loans={filteredLoans} onEdit={handleEditLoan}  onDelete={handleDeleteLoan} />
             </Box>
             { <LoanForm
                 open={isFormOpen}
