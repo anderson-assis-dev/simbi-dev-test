@@ -4,6 +4,7 @@ use App\Http\Controllers\CreateAuthorController;
 use App\Http\Controllers\CreateBookController;
 use App\Http\Controllers\ListAllBooksController;
 use App\Http\Controllers\ListBooksByAuthorController;
+use App\Http\Controllers\LoanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::group(["prefix" => "authors"], function () {
     Route::get("{id}/books", ListBooksByAuthorController::class);
     Route::post("", CreateAuthorController::class);
 });
+Route::apiResource('loans', LoanController::class);
 
 Route::middleware("auth:sanctum")->get("/user", function (Request $request) {
     return $request->user();

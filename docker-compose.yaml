@@ -4,7 +4,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile.dev
+      dockerfile: frontend/Dockerfile
     container_name: laravel-template-frontend
     restart: on-failure
     env_file:
@@ -27,7 +27,6 @@ services:
     volumes:
       - ./backend:/var/www/html
     working_dir: "/var/www/html"
-    entrypoint: "./.docker/entrypoint.sh"
 
   phpdoc:
     image: phpdoc/phpdoc:3
