@@ -9,8 +9,14 @@ export const categories = [
         id: "Livros",
         icon: <LibraryBooksIcon />,
         active: true,
+        link: '/',
       },
-      { id: "Empréstimos", icon: <AssignmentTurnedInIcon /> },
+      {
+        id: "Empréstimos",
+        icon: <AssignmentTurnedInIcon />,
+        active: false,
+        link: '/loans',
+      },
     ],
   },
 ];
