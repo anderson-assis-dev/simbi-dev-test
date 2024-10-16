@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Infra\Adapters\Persistence\Eloquent\Models\Author;
 use App\Infra\Adapters\Persistence\Eloquent\Models\Book;
+use App\Models\Loan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LoanFactory extends Factory
